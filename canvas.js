@@ -16,10 +16,24 @@ function CanvasPadApp(){
                          .mouseout(onMouseUp);
         toolbar.toolbarButtonClicked = toolbarButtonClicked;
         toolbar.menuItemClicked = menuItemClicked;
+        initColorMenu();
+        initWidthMenu();
     };
     function showCoordinates(point)
     {
         $('#coords').text(Math.round(point.x) + ", " + Math.round(point.y));
+    }
+    function initColorMenu()
+    {
+        $('#color-menu li').each(function(i, e){
+            $(e).css('background-color', $(e).data('value'));
+        });
+    }
+    function initWidthMenu()
+    {
+        $('#width-menu li').each(function(i, e){
+            $(e).css('border-bottom', $(e).data('value')+ 'px solid black');
+        });
     }
     //toolbar
     function toolbarButtonClicked(action)
